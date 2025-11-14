@@ -1,7 +1,30 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-const firebaseConfig = { apiKey: AIzaSyDMXyr_Cu5FsR7Qdem5RBe45bMKJ1Mt1jk };
+// script.js
+const products = [
+  { name: "Pagne Wax", price: "15 000 FCFA", img: "assets/pagne.jpg" },
+  { name: "Beurre de Karité", price: "5 000 FCFA", img: "assets/karite.jpg" },
+  { name: "Sculpture Baobab", price: "25 000 FCFA", img: "assets/art.jpg" }
+];
+
+function loadProducts() {
+  const list = document.getElementById('products-list');
+  if (!list) return;
+
+  list.innerHTML = products.map(p => `
+    <div class="card">
+      <img src="${p.img}" alt="${p.name}" onerror="this.src='assets/placeholder.jpg'">
+      <h3>${p.name}</h3>
+      <p><strong>${p.price}</strong></p>
+      <button onclick="alert('Paiement Mobile Money en cours...')">Acheter</button>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', loadProducts);
+
+const firebaseConfig = { /* REMPLACE PAR TES CLÉS */ };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -40,5 +63,4 @@ async function addProduct() {
     closeModal();
     location.reload();
   }
-
 }

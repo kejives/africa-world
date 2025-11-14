@@ -1,66 +1,101 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
-
-// script.js
-const products = [
-  { name: "Pagne Wax", price: "15 000 FCFA", img: "assets/pagne.jpg" },
-  { name: "Beurre de Karité", price: "5 000 FCFA", img: "assets/karite.jpg" },
-  { name: "Sculpture Baobab", price: "25 000 FCFA", img: "assets/art.jpg" }
-];
-
-function loadProducts() {
-  const list = document.getElementById('products-list');
-  if (!list) return;
-
-  list.innerHTML = products.map(p => `
-    <div class="card">
-      <img src="${p.img}" alt="${p.name}" onerror="this.src='assets/placeholder.jpg'">
-      <h3>${p.name}</h3>
-      <p><strong>${p.price}</strong></p>
-      <button onclick="alert('Paiement Mobile Money en cours...')">Acheter</button>
-    </div>
-  `).join('');
-}
-
-document.addEventListener('DOMContentLoaded', loadProducts);
-
-const firebaseConfig = { /* REMPLACE PAR TES CLÉS */ };
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// Charger produits
-async function loadProducts() {
-  const snap = await getDocs(collection(db, "products"));
-  const grid = document.getElementById('product-grid');
-  snap.forEach(doc => {
-    const p = doc.data();
-    const card = `<div class="card"><div class="content"><h3>${p.name}</h3><p>${p.price} FCFA</p><button onclick="pay('${p.name}', ${p.price})">Payer</button></div></div>`;
-    grid.innerHTML += card;
-  });
-}
-loadProducts();
-
-window.pay = (name, price) => {
-  alert(`Paiement de ${price} FCFA pour ${name} via Mobile Money`);
-  // Intègre Paydunya ici
+// Traduction
+const translations = {
+  fr: { 
+    "Accueil": "Accueil", "Home": "Accueil",
+    "Nouveautés": "Nouveautés", "New": "Nouveautés",
+    // ... (tout est déjà dans data-fr)
+  },
+  en: {
+    "Accueil": "Home", "Home": "Home",
+    "Nouveautés": "New", "New": "New",
+    "Catalogue": "Catalog", "Catalog": "Catalog",
+    "Devenir vendeur": "Become a seller", "Become a seller": "Become a seller",
+    "Services": "Services", "Services": "Services",
+    "Contact": "Contact", "Contact": "Contact",
+    "Voir le catalogue": "View catalog",
+    "Envoyer": "Send"
+  }
 };
 
-// Modal
-function openAddProductModal() {
-  document.getElementById('add-product-modal').style.display = 'flex';
-}
-function closeModal() {
-  document.getElementById('add-product-modal').style.display = 'none';
+function switchLang(lang) {
+  document.querySelectorAll('[data-fr],[data-en]').forEach(el => {
+    el.textContent = el.dataset[lang] || el.textContent;
+  });
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.lang-switcher button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  // Recharge produits si besoin
+  renderProducts();
 }
 
-// Ajouter produit (exemple Firebase)
-async function addProduct() {
-  const name = document.getElementById('product-name').value;
-  const price = document.getElementById('product-price').value;
-  if (name && price) {
-    // await addDoc(collection(db, "products"), { name, price, seller: currentUser.email });
-    alert("Produit ajouté !");
-    closeModal();
-    location.reload();
-  }
+// Produits
+const products = [
+  { name: "Pagne Wax Vlisco", price: "35 000 FCFA", city: "Abidjan", cat: "mode", img: "https://images.unsplash.com/photo-1604176354204-9268737828e4" },
+  { name: "Café moulu Bio", price: "5 000 FCFA", city: "Korhogo", cat: "agro", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c" },
+  { name: "Masque Baoulé", price: "85 000 FCFA", city: "Yamoussoukro", cat: "art", img: "https://images.unsplash.com/photo-1574258492193-7b9a2e108b12" },
+  { name: "Beurre de Karité", price: "8 500 FCFA", city: "Bondoukou", cat: "beaute", img: "https://images.unsplash.com/photo-1570197788417-0b3c9e9a1557" },
+  { name: "Chargeur solaire", price: "25 000 FCFA", city: "San-Pédro", cat: "mode", img: "https://images.unsplash.com/photo-1509395596868-2b1d11e0873a" },
+  { name: "Chocolat 70%", price: "3 000 FCFA", city: "Divo", cat: "agro", img: "https://images.unsplash.com/photo-1578985545005-2a7a3e7d4a3a" },
+  { name: "Sac en raphia", price: "18 000 FCFA", city: "Grand-Bassam", cat: "art", img: "https://images.unsplash.com/photo-1584912000675-67cb5f5b3382" },
+  { name: "Huile de coco", price: "7 000 FCFA", city: "Sassandra", cat: "beaute", img: "https://images.unsplash.com/photo-1606890658317-7e5d5b70f85d" },
+];
+
+function renderProducts() {
+  const grid = document.getElementById('product-grid');
+  const nouveautes = document.getElementById('nouveautes-grid');
+  grid.innerHTML = ''; nouveautes.innerHTML = '';
+
+  products.forEach((p, i) => {
+    const card = createCard(p, i);
+    grid.appendChild(card);
+    if (i < 3) nouveautes.appendChild(card.cloneNode(true));
+  });
 }
+
+function createCard(p, i) {
+  const card = document.createElement('div');
+  card.className = `card fade-in ${p.cat}`;
+  card.style.backgroundImage = `url('${p.img}?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80')`;
+  card.innerHTML = `
+    <div class="overlay"></div>
+    <div class="content">
+      <h3>${p.name}</h3>
+      <p>${p.city} • ${p.price}</p>
+      <span class="tag">${p.cat.toUpperCase()}</span>
+    </div>
+  `;
+  return card;
+}
+
+renderProducts();
+
+// Filtres, menu, animations (comme avant)
+document.querySelectorAll('.filter-tabs button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelector('.filter-tabs .active').classList.remove('active');
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('#product-grid .card').forEach(card => {
+      card.style.display = (filter === 'all' || card.classList.contains(filter)) ? 'block' : 'none';
+    });
+  });
+});
+
+document.querySelector('.menu-toggle').addEventListener('click', () => {
+  document.querySelector('nav ul').classList.toggle('active');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('appear');
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));

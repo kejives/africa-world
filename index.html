@@ -3,84 +3,152 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="AFRICA-WORLd : Marché africain authentique. Pagne, karité, artisanat. Paiement mobile money.">
-  <title>AFRICA-WORLd | Marché Africain</title> <head>
-  <!-- Charset & Viewport -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <!-- SEO ESSENTIEL -->
-  <title>AFRICA-WORLd | Marché Africain en Ligne - Pagne, Karité, Artisanat</title>
-  <meta name="description" content="Découvrez les meilleurs produits africains : pagne wax, beurre de karité, artisanat ivoirien. Paiement Mobile Money. Livraison en Afrique & Europe." />
-  <meta name="keywords" content="marché africain, pagne wax, beurre de karité, artisanat ivoirien, côte d'ivoire, e-commerce afrique, mobile money, orange money, mtn, wave" />
-  <meta name="author" content="AFRICA-WORLd Team" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://africaworld.shop/" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="AFRICA-WORLd | Marché Africain en Ligne" />
-  <meta property="og:description" content="Pagne, karité, artisanat — paiement mobile money, livraison mondiale." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://africaworld.shop/" />
-  <meta property="og:image" content="https://africaworld.shop/assets/og-image.jpg" />
-  <meta property="og:site_name" content="AFRICA-WORLd" />
-  <meta property="og:locale" content="fr_FR" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AFRICA-WORLd | Marché Africain en Ligne" />
-  <meta name="twitter:description" content="Pagne, karité, artisanat — paiement mobile money." />
-  <meta name="twitter:image" content="https://africaworld.shop/assets/og-image.jpg" />
-  <meta name="twitter:site" content="@africaworld" />
-
-  <!-- Favicon & PWA -->
-  <link rel="icon" href="https://flagcdn.com/w160/ci.png" />
-  <link rel="apple-touch-icon" href="https://flagcdn.com/w160/ci.png" />
-  <meta name="theme-color" content="#009A44" />
-  <link rel="manifest" href="/manifest.json" />
-</head>
+  <title>AFRICA-WORLd | Marché Africain Mondial</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="https://flagcdn.com/w160/ci.png" />
-  <meta name="theme-color" content="#009A44"/> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="whatsapp-btn">
-    <a href="https://wa.me/22507482222970"><i class="fab fa-whatsapp"></i></a>
-  </div>
 
+  <!-- Header -->
   <header>
     <div class="container">
-      <div class="logo">AFRICA-<span>WORLd</span></div>
-      <nav><ul>
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#catalogue">Catalogue</a></li>
-        <li><a href="vendeur.html">Devenir vendeur</a></li>
-        <li><a href="dashboard.html">Mon espace</a></li>
-      </ul></nav>
+      <div class="logo">
+        <svg class="logo-svg" width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="30" r="18" fill="#FFD700" opacity="0.3"/>
+          <path d="M7 30 A18 18 0 0 1 43 30" stroke="#FFD700" stroke-width="3" fill="none"/>
+          <path d="M25 12 A18 18 0 0 1 25 48" stroke="#FFD700" stroke-width="3" fill="none"/>
+          <text x="55" y="35" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" fill="#009A44">AFRICA</text>
+          <text x="55" y="35" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" fill="#000" opacity="0.3">AFRICA</text>
+          <text x="122" y="35" font-family="Montserrat, sans-serif" font-weight="700" font-size="24" fill="#000">-WORLd</text>
+        </svg>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#accueil" class="active">Accueil</a></li>
+          <li><a href="#nouveautes">Nouveautés</a></li>
+          <li><a href="#catalogue">Catalogue</a></li>
+          <li><a href="#vendeur">Devenir vendeur</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </header>
 
+  <!-- Hero -->
   <section id="accueil" class="hero">
     <div class="container">
-      <h2>Découvrez l’Afrique qui <span>brille</span></h2>
-      <a href="#catalogue" class="btn">Voir le catalogue</a>
+      <h2 class="fade-in">Découvrez l'Afrique qui <span>brille</span></h2>
+      <p class="fade-in delay-1">Produits authentiques • Talents locaux • Livraison mondiale</p>
+      <a href="#catalogue" class="btn pulse">Voir le catalogue</a>
     </div>
   </section>
 
-  <section id="catalogue" class="section">
+  <!-- Nouveautés -->
+  <section id="nouveautes" class="section">
     <div class="container">
-      <h2>Nos Produits</h2>
-      <div class="cards" id="product-grid"></div>
+      <h2 class="slide-up">🔥 Nouveautés du Mois</h2>
+      <div class="cards">
+        <div class="card fade-in" style="background-image: url('https://images.unsplash.com/photo-1604176354204-9268737828e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Pagne Wax Premium</h3>
+            <p>Abidjan • 35 000 FCFA</p>
+            <span class="tag">Nouveau</span>
+          </div>
+        </div>
+        <div class="card fade-in delay-1" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Café Arabica Bio</h3>
+            <p>Korhogo • 5 000 FCFA</p>
+            <span class="tag">Bio</span>
+          </div>
+        </div>
+        <div class="card fade-in delay-2" style="background-image: url('https://images.unsplash.com/photo-1574258492193-7b9a2e108b12?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');">
+          <div class="overlay"></div>
+          <div class="content">
+            <h3>Masque Baoulé</h3>
+            <p>Yamoussoukro • 85 000 FCFA</p>
+            <span class="tag">Artisanat</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catalogue Complet -->
+  <section id="catalogue" class="section bg-light">
+    <div class="container">
+      <h2 class="slide-up">📦 Catalogue Complet</h2>
+      <div class="filter-tabs">
+        <button class="active" data-filter="all">Tous</button>
+        <button data-filter="mode">Mode</button>
+        <button data-filter="agro">Agro</button>
+        <button data-filter="art">Artisanat</button>
+        <button data-filter="beaute">Beauté</button>
+      </div>
+      <div class="cards" id="product-grid">
+        <!-- Produits générés via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Devenir Vendeur -->
+  <section id="vendeur" class="section">
+    <div class="container">
+      <h2 class="slide-up">🤝 Devenez Vendeur</h2>
+      <p>Rejoignez +500 vendeurs africains déjà sur la plateforme.</p>
+      <div class="benefits">
+        <div class="benefit fade-in"><i class="fas fa-globe"></i> Visibilité mondiale</div>
+        <div class="benefit fade-in delay-1"><i class="fas fa-shield-alt"></i> Paiement sécurisé</div>
+        <div class="benefit fade-in delay-2"><i class="fas fa-headset"></i> Support 24/7</div>
+      </div>
+      <a href="#contact" class="btn">Inscription gratuite</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section bg-light">
+    <div class="container">
+      <h2 class="slide-up">⚙️ Services Premium</h2>
+      <div class="services-grid">
+        <div class="service-card"><i class="fas fa-truck"></i> Livraison express</div>
+        <div class="service-card"><i class="fas fa-certificate"></i> Vendeurs certifiés</div>
+        <div class="service-card"><i class="fas fa-comments"></i> Chat en direct</div>
+        <div class="service-card"><i class="fas fa-chart-line"></i> Stats de vente</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="slide-up">✉️ Contactez-nous</h2>
+      <form action="https://formspree.io/f/mkgewjya" method="POST">
+        <input type="text" name="name" placeholder="Nom complet" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+        <button type="submit" class="btn">Envoyer</button>
+      </form>
+      <div class="contact-info">
+        <p><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</p>
+        <p><i class="fas fa-phone"></i> +225 07 00 00 00 00</p>
+        <p><i class="fas fa-envelope"></i> contact@africaworld.com</p>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 AFRICA-WORLd. Fait en Côte d'Ivoire.</p>
+      <p>&copy; 2025 AFRICA-WORLd. Fait avec <i class="fas fa-heart" style="color: #FFD700;"></i> en Côte d'Ivoire.</p>
     </div>
   </footer>
 
-  <script type="module" src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

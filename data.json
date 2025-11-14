@@ -1,0 +1,13 @@
+{
+  "sellers": [
+    {
+      "email": "vendeur@test.com",
+      "password": "1234",
+      "name": "Koffi Artisanat",
+      "products": [
+        {"name": "Masque Baoulé", "price": 85000, "sales": 3},
+        {"name": "Pagne tissé", "price": 25000, "sales": 5}
+      ]
+    }
+  ]
+}

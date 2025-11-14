@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- === META TAGS & SEO (page privée) === -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <title>Mon Espace Vendeur - AFRICA-WORLd</title>
+  <meta name="description" content="Tableau de bord vendeur : gérez vos produits, ventes et paiements." />
+  <meta name="robots" content="noindex, nofollow" /> <!-- PAGE PRIVÉE -->
+  <link rel="canonical" href="https://africaworld.shop/dashboard.html" />
+
+  <!-- Sécurité supplémentaire -->
+  <meta name="googlebot" content="noindex, nofollow" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Favicon & PWA -->
+  <link rel="icon" href="https://flagcdn.com/w160/ci.png" />
+  <meta name="theme-color" content="#009A44" />
+
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dashboard-page">
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">AFRICA-<span>WORLd</span></a>
+      <div class="user-info">
+        <span id="seller-name">Chargement...</span>
+        <button onclick="logout()" class="btn small">Déconnexion</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenu Dashboard -->
+  <section class="section">
+    <div class="container">
+      <h2>Bienvenue dans votre espace vendeur</h2>
+      
+      <div class="stats">
+        <div class="stat">
+          <strong id="total-products">0</strong> Produits
+        </div>
+        <div class="stat">
+          <strong id="total-sales">0</strong> Ventes
+        </div>
+        <div class="stat">
+          <strong id="pending-orders">0</strong> Commandes
+        </div>
+      </div>
+
+      <h3,3>Vos produits</h3>
+      <div id="seller-products" class="cards"></div>
+
+      <button class="btn" onclick="openAddProductModal()">
+        + Ajouter un produit
+      </button>
+    </div>
+  </section>
+
+  <!-- Modal Ajout Produit -->
+  <div id="add-product-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3>Nouveau Produit</h3>
+      <input type="text" id="product-name" placeholder="Nom du produit" />
+      <input type="number" id="product-price" placeholder="Prix (FCFA)" />
+      <input type="text" id="product-category" placeholder="Catégorie" />
+      <button class="btn" onclick="addProduct()">Ajouter</button>
+      <button style="background:#ccc;" onclick="closeModal()">Annuler</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

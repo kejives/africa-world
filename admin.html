@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin - AFRICA-WORLd</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin">
+  <header><div class="container"><h1>Admin Panel</h1><button onclick="logout()">Déconnexion</button></div></header>
+  <section class="section">
+    <div class="container">
+      <h2>Tous les vendeurs</h2>
+      <div id="sellers-list"></div>
+      <h2>Statistiques</h2>
+      <div class="stats">
+        <div><strong id="total-sellers">0</strong> Vendeurs</div>
+        <div><strong id="total-products">0</strong> Produits</div>
+        <div><strong id="total-sales">0</strong> Ventes</div>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

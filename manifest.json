@@ -1,0 +1,9 @@
+{
+  "name": "AFRICA-WORLd",
+  "short_name": "AFRICA-WORLd",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#009A44",
+  "theme_color": "#FFD700",
+  "icons": [{ "src": "https://flagcdn.com/w160/ci.png", "sizes": "192x192", "type": "image/png" }]
+}

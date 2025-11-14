@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lancement AFRICA-WORLd</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: linear-gradient(135deg, #009A44, #FFD700); color: white; text-align: center; padding: 100px 20px; font-family: 'Montserrat', sans-serif; }
+    h1 { font-size: 3rem; font-family: 'Playfair Display', serif; }
+    .countdown { font-size: 2rem; margin: 2rem 0; }
+    .btn { background: white; color: #009A44; padding: 15px 40px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; margin: 1rem; }
+    .social { margin: 2rem 0; }
+    .social a { color: white; font-size: 1.8rem; margin: 0 15px; }
+  </style>
+</head>
+<body>
+  <h1>LANCEMENT OFFICIEL</h1>
+  <h2>AFRICA-WORLd</h2>
+  <div class="countdown" id="countdown">Lancement dans <span>7</span> jours !</div>
+  <p>Le plus grand marché africain en ligne arrive !</p>
+  <a href="https://africaworld.shop" class="btn">Visiter le site</a>
+  <a href="https://wa.me/2250700000000" class="btn">Rejoindre via WhatsApp</a>
+  <div class="social">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-tiktok"></i></a>
+  </div>
+  <script>
+    const launchDate = new Date('2025-11-21T00:00:00');
+    setInterval(() => {
+      const now = new Date();
+      const diff = launchDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.querySelector('#countdown span').textContent = days;
+    }, 1000);
+  </script>
+</body>
+</html>

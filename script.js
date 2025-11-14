@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
 import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
-const firebaseConfig = { /* REMPLACE PAR TES CLÉS */ };
+const firebaseConfig = { apiKey: AIzaSyDMXyr_Cu5FsR7Qdem5RBe45bMKJ1Mt1jk };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
@@ -40,4 +40,5 @@ async function addProduct() {
     closeModal();
     location.reload();
   }
+
 }
